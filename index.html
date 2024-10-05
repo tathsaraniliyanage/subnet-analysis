@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Subnet Analysis</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .numbers{
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .container{
+            border: 1px solid black;
+            border-radius: 90px;
+            padding: 40px;
+        }
+         .nav-ul{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: center;
+            text-decoration: none;
+        }
+        .nav-li{
+            text-decoration: none;
+        }
+        .nav-a{
+            text-decoration: none;
+        }
+        .nav-div{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
+            border-radius: 100%
+        }
+        .nav-sec{
+            margin-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: center;
+            text-decoration: none;
+            border-radius: 100%
+        }
+        .navbtn{
+            border-radius: 0%;
+        }
+    </style>
+</head>
+<body>
+
+<section class="nav-sec">
+  <div class="nav-div">
+
+       <a href="./index.html">
+            <button type="button" class="navbtn  btn btn-outline-primary">Home</button>
+       </a>
+    
+        <a href="./IP Converter.html">
+            <button type="button" class="navbtn  btn btn-outline-primary">IP Converter</button>
+        </a>
+   
+        <a href="./Other.html">
+            <button type="button" class="navbtn  btn btn-outline-primary">Other</button>
+        </a>
+  </div>
+</section>
+
+
+
+<div class="container mt-5">
+
+
+    <div class="row">
+        <div class="col-sm-12 col-lg-6">
+            <h1>Subnet Analysis</h1>
+            <p>Enter IP address & Subnet Mask <br>
+                ex: IP address = 8.1.4.5 | Subnet Mask = 255.240.0.0 </p>
+
+            <div>
+                <div class="form-group">
+                    <label for="ipAddress">IP Address:</label>
+                    <input type="text" class="numbers form-control" id="ipAddress" maxlength="15"
+                           placeholder="Enter IP Address">
+                </div>
+                <div class="form-group">
+                    <label for="subnetMask">Subnet Mask:</label>
+                    <input type="text" class="numbers form-control" id="subnetMask" maxlength="15"
+                           placeholder="Enter Subnet Mask">
+                </div>
+                <button class="btn btn-primary" id="calculate">Analise</button>
+            </div>
+
+            <div class="m-3">
+                <div class="row">
+                    <div>
+                        <h6 style="color: red"><strong>Subnet Mask in Binary: </strong></h6>
+                        <h6 style="color: blue"><strong>IP in Binary: </strong></h6>
+                    </div>
+                    <div>
+                        <h6 style="color: red" class="numbers subnetMaskBinary">00000000.00000000.00000000.00000000</h6>
+                        <h6 style="color: blue" class="numbers" id="ipInBinary">00000000.00000000.00000000.00000000</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="col-sm-12 col-lg-12">
+                <h3>Analysis</h3>
+                <div>
+                    <p><strong>Address range:</strong> <span style="color: blue" class="numbers"  id="addressRange"></span></p>
+                </div>
+                <div>
+                    <p><strong>Class:</strong> <span style="color: blue"  class="numbers" id="ipClass"></span></p>
+                </div>
+                <div>
+                    <p><strong>Network Bits:</strong> <span style="color: blue" class="numbers" id="NetworkBits"></span></p>
+                </div>
+
+                <div>
+                    <p><strong>Prefix Bits:</strong> <span style="color: blue" class="numbers" id="prefixBits"></span></p>
+                </div>
+                <div>
+                    <p><strong>Subnet Bits:</strong> <span style="color: blue" class="numbers" id="subnetBits"></span> | (prefix bits - network bits)</p>
+                </div>
+                <div>
+                    <p><strong>Host Bits:</strong> <span style="color: blue" class="numbers" id="hostBits"></span> | (32 - prefix bits)</p>
+                </div>
+
+                <div>
+                    <p><strong>No. of possible subnets in this network :</strong> <span style="color: blue" class="numbers" id="possibleSubnetsNo"></span> |
+                        2^Subnet Bits</p>
+                </div>
+                <div>
+                    <p><strong>No. of hosts per subnet :</strong> <span style="color: blue" class="numbers" id="possibleHostsNo"></span> | (2^Host bits) - 2
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
