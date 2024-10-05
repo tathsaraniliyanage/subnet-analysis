@@ -67,7 +67,7 @@
     <section class="nav-sec">
         <div class="nav-div">
       
-             
+            
         </div>
       </section>
 
@@ -126,7 +126,20 @@
         document.getElementById("decimalResult").innerHTML = decimalDottedNotation;
     }
 
-   
+    function convertDecimalToBinary() {
+        var decimalIP = document.getElementById("decimalIP").value;
+        var decimalGroups = decimalIP.split(".");
+        var binaryGroups = [];
+
+        for (var i = 0; i < decimalGroups.length; i++) {
+            var binary = parseInt(decimalGroups[i]).toString(2).padStart(8, '0');
+            binaryGroups.push(binary);
+        }
+
+        var binaryDottedNotation = binaryGroups.join(".");
+        document.getElementById("binaryResult").innerHTML = binaryDottedNotation;
+    }
+
     function copyToClipboard(elementId) {
         var element = document.getElementById(elementId);
         var range = document.createRange();
